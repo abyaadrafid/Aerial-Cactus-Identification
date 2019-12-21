@@ -11,6 +11,9 @@ I used this dataset for two purposes :
 
 ### EDA 
 According to the dataset details, the images were taken from the air. The images are low-res, some of them rotated to arbitrary angles and some zoomed. From visual inspection, the cacti are somewhat easy to spot because of their unique texture and stick-like shape. The class imbalance is not severe, can be handled by data augmentation.
+
+![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/data_print.png)
+
 ### Data split and Transforms
 #### Split : 
 As the class imbalance was not servere, the data could be split into train/valid set at random.
@@ -21,14 +24,35 @@ Following Transforms were applied with 75% probability to augment the date, then
 2. Vertical Flip
 3. Left and Right rotation upto 10°
 4. Upto 110% zoom
-### Models
+
+### Hyperparameters :
+#### ArcFace :
+
+1. s = 64
+2. m = 0.0
+3. Adam Optimizer with fixed lr = 1e-3
+
+#### Competition Classifiers : 
+##### Densenet169
+1. Frozen model, Adam optimizer with maximum lr = 7.5e-3.
+2. CyclirLR scheduler
+3. Unfrozen model, Adam optimizer with maximum lr = 1e-6.
+
+##### Resnet101
+1. Frozen model, Adam optimizer with maximum lr = 9e-3.
+2. CyclirLR scheduler
+3. Unfrozen model, Adam optimizer with maximum lr = 1e-6.
+
+### Model Performance :
 I used DenseNet169 and Resnet101 for Leaderboard and ArcFace for research purposes.
 
 ### ArcFace
-ArcFace was applied on the Resnet101 backbone. Implemented from scratch in pytorch. With embedding dimension = 2 and scale_factor (s) = 64, accuracy follows :
+ArcFace was applied on the Resnet101 backbone. Implemented from scratch in pytorch. With embedding dimension = 2048 and scale_factor (s) = 64, accuracy follows :
 
 
 ![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/arcface.png)
+
+Further experimentation using additional linear layers can boost the results. Then again, this approach is designed for one-shot learning. Worse performance in Binary Classification is quite understandable.
 #### DenseNet169
 Densenet169 needs more time to converge because of its enormous size and paramters. 
 
@@ -42,10 +66,10 @@ Densenet169 needs more time to converge because of its enormous size and paramte
 #### Resnet101
 Resnet101 needed less time to converge. 
 
-| epoch 	| train_loss 	| valid_loss 	|  f_beta  	| error_rate 	| accuracy 	|  time 	|
-|:-----:	|:----------:	|:----------:	|:--------:	|:----------:	|:--------:	|:-----:	|
-|   0   	|  0.063169  	|  0.033260  	| 0.992063 	|  0.011429  	| 0.988571 	| 01:17 	|
-|   1   	|  0.034835  	|  0.002770  	| 1.000000 	|  0.000000  	| 1.000000 	| 01:15 	|
-|   2   	|  0.024171  	|  0.002123  	| 1.000000 	|  0.000000  	| 1.000000 	| 01:15 	|
-|   3   	|  0.014281  	|  0.006416  	| 0.998415 	|  0.005714  	| 0.994286 	| 01:14 	|
-|   4   	|  0.006923  	|  0.002465  	| 1.000000 	|  0.000000  	| 1.000000 	| 01:13 	|
+| epoch 	| train_loss 	| valid_loss 	| error_rate 	| accuracy 	|  time 	|
+|:-----:	|:----------:	|:----------:	|:--------:	|:----------:	|:--------:	|
+|   0   	|  0.063169  	|  0.033260  	|  0.011429  	| 0.988571 	| 01:17 	|
+|   1   	|  0.034835  	|  0.002770  	|  0.000000  	| 1.000000 	| 01:15 	|
+|   2   	|  0.024171  	|  0.002123  	|  0.000000  	| 1.000000 	| 01:15 	|
+|   3   	|  0.014281  	|  0.006416  	|  0.005714  	| 0.994286 	| 01:14 	|
+|   4   	|  0.006923  	|  0.002465  	|  0.000000  	| 1.000000 	| 01:13 	|
