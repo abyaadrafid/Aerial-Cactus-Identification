@@ -1,6 +1,6 @@
 # [Aerial Cactus Identification](https://www.kaggle.com/c/aerial-cactus-identification)
 
-This was one my of very first competitions. While doing [Practical Deep Learning for Coders](https://course.fast.ai/), this competition provided a good source of practise. It was a binary classification probelm. The goal for this competition was to determine whether the given satellite image contained a columnur cactus. 
+This was one my of very first competitions. While doing [Practical Deep Learning for Coders](https://course.fast.ai/), this competition provided a good source of practise. It was a binary classification problem. The goal for this competition was to determine whether the given satellite image contained a columnur cactus. 
 
 I used this dataset for two purposes :
 
@@ -18,7 +18,7 @@ According to the dataset details, the images were taken from the air. The images
 #### Split : 
 As the class imbalance was not servere, the data could be split into train/valid set at random.
 #### Transforms : 
-Following Transforms were applied with 75% probability to augment the date, then the images were resized to 128*128. Test time augmentation was not applied.  
+Following Transforms were applied with 75% probability to augment the data, then the images were resized to 128*128. Test time augmentation was not applied.  
 
 1. Horizontal Flip
 2. Vertical Flip
@@ -73,3 +73,7 @@ Resnet101 needed less time to converge.
 |   2   	|  0.024171  	|  0.002123  	|  0.000000  	| 1.000000 	| 01:15 	|
 |   3   	|  0.014281  	|  0.006416  	|  0.005714  	| 0.994286 	| 01:14 	|
 |   4   	|  0.006923  	|  0.002465  	|  0.000000  	| 1.000000 	| 01:13 	|
+
+## Competition Standings :
+
+My models acheived perfect accuracy score in the public leaderboard.
