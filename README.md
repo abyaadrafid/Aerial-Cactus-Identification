@@ -12,7 +12,7 @@ I used this dataset for two purposes :
 ### EDA 
 According to the dataset details, the images were taken from the air. The images are low-res, some of them rotated to arbitrary angles and some zoomed. From visual inspection, the cacti are somewhat easy to spot because of their unique texture and stick-like shape. The class imbalance is not severe, can be handled by data augmentation.
 
-![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/data_print.png)
+![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/img/data_print.png)
 
 ### Data split and Transforms
 #### Split : 
@@ -50,7 +50,7 @@ I used DenseNet169 and Resnet101 for Leaderboard and ArcFace for research purpos
 ArcFace was applied on the Resnet101 backbone. Implemented from scratch in pytorch. With embedding dimension = 2048 and scale_factor (s) = 64, accuracy follows :
 
 
-![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/arcface.png)
+![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/img/arcface.png)
 
 Further experimentation using additional linear layers can boost the results. Then again, this approach is designed for one-shot learning. Worse performance in Binary Classification is quite understandable.
 #### DenseNet169
