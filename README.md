@@ -15,9 +15,9 @@ According to the dataset details, the images were taken from the air. The images
 ![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/img/data_print.png)
 
 ### Data split and Transforms
-#### Split : 
+#### Split 
 As the class imbalance was not servere, the data could be split into train/valid set at random.
-#### Transforms : 
+#### Transforms 
 Following Transforms were applied with 75% probability to augment the data, then the images were resized to 128*128. Test time augmentation was not applied.  
 
 1. Horizontal Flip
@@ -25,14 +25,14 @@ Following Transforms were applied with 75% probability to augment the data, then
 3. Left and Right rotation upto 10°
 4. Upto 110% zoom
 
-### Hyperparameters :
-#### ArcFace :
+### Hyperparameters
+#### ArcFace
 
 1. s = 64
 2. m = 0.0
 3. Adam Optimizer with fixed lr = 1e-3
 
-#### Competition Classifiers : 
+#### Competition Classifiers 
 ##### Densenet169
 1. Frozen model, Adam optimizer with maximum lr = 7.5e-3.
 2. CyclirLR scheduler
@@ -43,7 +43,7 @@ Following Transforms were applied with 75% probability to augment the data, then
 2. CyclirLR scheduler
 3. Unfrozen model, Adam optimizer with maximum lr = 1e-6.
 
-### Model Performance :
+### Model Performance
 I used DenseNet169 and Resnet101 for Leaderboard and ArcFace for research purposes.
 
 ### ArcFace
@@ -74,6 +74,6 @@ Resnet101 needed less time to converge.
 |   3   	|  0.014281  	|  0.006416  	|  0.005714  	| 0.994286 	| 01:14 	|
 |   4   	|  0.006923  	|  0.002465  	|  0.000000  	| 1.000000 	| 01:13 	|
 
-## Competition Standings :
+## Competition Standings
 
 My models acheived perfect accuracy score in the public leaderboard.
