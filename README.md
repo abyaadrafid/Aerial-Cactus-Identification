@@ -26,8 +26,9 @@ I used DenseNet169 and Resnet101 for Leaderboard and ArcFace for research purpos
 
 ### ArcFace
 ArcFace was applied on the Resnet101 backbone. Implemented from scratch in pytorch. With embedding dimension = 2 and scale_factor (s) = 64, accuracy follows :
-![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/arcface.png)
 
+
+![image](https://github.com/abyaadrafid/Aerial-Cactus-Identification/blob/master/arcface.png)
 #### DenseNet169
 Densenet169 needs more time to converge because of its enormous size and paramters. 
 
